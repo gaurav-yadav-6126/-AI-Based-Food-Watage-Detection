@@ -1,113 +1,272 @@
-# Food Wastage Detection in Restaurants
+# 🍽️ AI-Based Food Wastage Detection
 
-<<<<<<< HEAD
-This is a Next.js application built in Firebase Studio that uses AI to help restaurants track and reduce food waste.
-=======
-This is a Next.js application that uses AI to help restaurants track and reduce food waste.
->>>>>>> 8bf5851f73e9948b564474fac3c9e484efe6c354
+An AI-powered web application designed to detect and analyze food waste from images, estimate the quantity of wasted food, and provide actionable recommendations to help reduce food wastage.
 
-## How to Build and Run the Web Application
-
-To build and run the production version of this web application on your computer, follow these three steps in your terminal:
-
-1.  **Install Dependencies** (only needs to be done once):
-    ```bash
-    npm install
-    ```
-
-2.  **Build the Application**: This compiles and optimizes the code for production.
-    ```bash
-    npm run build
-    ```
-
-3.  **Start the Server**: This runs the built application.
-    ```bash
-    npm run start
-    ```
-    After this, open your browser and navigate to **http://localhost:3000** to see your application live.
+The project uses **Google Gemini Vision capabilities** to analyze uploaded food images and generate meaningful waste-analysis insights through an interactive web interface.
 
 ---
 
-## Running the Project Locally with VS Code (for Development)
+## 🚀 Features
 
-To run this application on your local machine using Visual Studio Code for development purposes, follow these steps:
+* 📸 **Food Image Analysis**
 
-### Prerequisites
+  * Upload an image of leftover or wasted food.
+  * AI analyzes the uploaded image to identify the food type.
 
-1.  **Node.js**: Make sure you have Node.js (version 18 or later) installed. You can download it from [nodejs.org](https://nodejs.org/).
-2.  **VS Code**: Download and install [Visual Studio Code](https://code.visualstudio.com/).
-3.  **Git**: Make sure you have Git installed. You can download it from [git-scm.com](https://git-scm.com/).
+* 📊 **Food Waste Estimation**
 
-### 1. Set Up the Project
+  * Provides an estimated quantity of food waste based on the uploaded image.
 
-First, you need to recreate the project structure on your computer.
+* 🤖 **AI-Powered Analysis**
 
-1.  **Create a Project Folder**: On your computer, create a new folder for your project (e.g., `food-waste-app`).
-2.  **Open in VS Code**: Open this folder in VS Code.
-3.  **Recreate Files**: Manually create the files and directories from the project. You can ask me to provide the code for any file you need. The most important files to start with are:
-    *   `package.json`
-    *   `next.config.ts`
-    *   `tailwind.config.ts`
-    *   `tsconfig.json`
-    *   Then, create the `src` directory and populate it with the application source code.
+  * Uses Google's Gemini AI capabilities for image understanding and analysis.
 
-### 2. Install Dependencies
+* 💡 **Waste Reduction Tips**
 
-Once you have the `package.json` file in your project folder, open the terminal in VS Code (`View` > `Terminal`) and run the following command to install all the necessary packages:
+  * Generates practical suggestions to reduce food wastage.
+
+* 📈 **Waste Dashboard**
+
+  * Provides an overview of food-waste data and trends.
+
+* 📅 **Weekly Waste Summary**
+
+  * Generates summarized insights from recorded waste data.
+
+* 🌓 **Responsive UI**
+
+  * Clean and responsive interface for desktop and mobile users.
+
+---
+
+## 🛠️ Tech Stack
+
+### Frontend
+
+* Next.js
+* React
+* TypeScript
+* Tailwind CSS
+
+### AI & Backend
+
+* Google Gemini
+* Genkit
+* Server Actions
+
+### Development Tools
+
+* Node.js
+* npm
+* VS Code
+* Git & GitHub
+
+---
+
+## 🧠 How It Works
+
+```text
+User
+  │
+  ▼
+Upload Food Image
+  │
+  ▼
+Next.js Application
+  │
+  ▼
+Gemini AI Image Analysis
+  │
+  ▼
+Food Type + Estimated Quantity
+  │
+  ▼
+Waste Analysis
+  │
+  ▼
+Dashboard & Recommendations
+```
+
+---
+
+## 📂 Project Structure
+
+```text
+AI-Based-Food-Waste-Detection/
+│
+├── src/
+│   ├── ai/
+│   │   ├── flows/
+│   │   │   ├── analyze-uploaded-food-image.ts
+│   │   │   ├── generate-waste-reduction-tips.ts
+│   │   │   └── summarize-weekly-waste-data.ts
+│   │   │
+│   │   └── genkit.ts
+│   │
+│   ├── app/
+│   │   ├── dashboard/
+│   │   ├── tips/
+│   │   ├── layout.tsx
+│   │   └── page.tsx
+│   │
+│   ├── components/
+│   │   ├── dashboard/
+│   │   ├── layout/
+│   │   └── theme-provider.tsx
+│   │
+│   ├── hooks/
+│   └── lib/
+│
+├── public/
+├── package.json
+├── package-lock.json
+├── next.config.ts
+├── metadata.json
+└── README.md
+```
+
+---
+
+## ⚙️ Installation & Setup
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/gaurav-yadav-6126/-AI-Based-Food-Watage-Detection.git
+```
+
+### 2. Navigate to the Project
+
+```bash
+cd -AI-Based-Food-Watage-Detection
+```
+
+### 3. Install Dependencies
 
 ```bash
 npm install
 ```
 
-### 3. Set Up Environment Variables
+### 4. Configure Environment Variables
 
-The application uses the Gemini API for its AI features, which requires an API key.
+Create a `.env.local` file in the root directory:
 
-1.  **Get a Gemini API Key**: Visit [Google AI Studio](https://aistudio.google.com/app/apikey) to create and get your API key.
-2.  **Create a `.env.local` file**: In the root of your project, create a new file named `.env.local`.
-3.  **Add the API Key**: Add your Gemini API key to the `.env.local` file like this:
+```env
+GEMINI_API_KEY=your_gemini_api_key
+```
 
-    ```
-    GEMINI_API_KEY=YOUR_API_KEY_HERE
-    ```
+Replace `your_gemini_api_key` with your Google Gemini API key.
 
-    Replace `YOUR_API_KEY_HERE` with the actual key you obtained from Google AI Studio.
+> ⚠️ Never commit `.env.local` or your API key to GitHub.
 
-### 4. Run the Application in Development Mode
-
-Now you're ready to start the development server. Run the following command in your VS Code terminal:
+### 5. Run the Development Server
 
 ```bash
 npm run dev
 ```
 
-This will start the application, and you can view it by opening your web browser and navigating to **http://localhost:9002**.
+Open the application in your browser:
+
+```text
+http://localhost:3000
+```
 
 ---
 
-## How to Share This Project on GitHub
+## 🔑 Environment Variables
 
-1.  **Initialize a Git Repository**: Open a terminal in your project's root folder and run this command. This tells Git to start tracking your files.
-    ```bash
-    git init
-    ```
+| Variable         | Description                             |
+| ---------------- | --------------------------------------- |
+| `GEMINI_API_KEY` | API key used to access Google Gemini AI |
 
-2.  **Add and Commit Your Code**: These commands stage all your files and then save them as the first official version in your Git history.
-    ```bash
-    git add .
-    git commit -m "Initial commit"
-    ```
+---
 
-3.  **Create a New Repository on GitHub**: Go to [GitHub.com](https://github.com), log in, and click the "New" button to create a new repository. Give it a name (like `food-waste-app`) and keep it public. Do not initialize it with a README or .gitignore file, as we already have those.
+## 📸 Application Workflow
 
-4.  **Link and Push Your Code**: On the next page, GitHub will give you a URL for your new repository. Copy it and run the following commands in your terminal, replacing `<YOUR_GITHUB_REPO_URL>` with the URL you copied.
+### Step 1 — Upload Food Image
 
-    ```bash
-    git remote add origin <YOUR_GITHUB_REPO_URL>
-    git branch -M main
-    git push -u origin main
-    ```
+The user uploads an image containing leftover or wasted food.
 
-Now, your entire project is safely stored on GitHub!
+### Step 2 — AI Analysis
 
-If you need the code for any specific file, just ask, and I'll provide it!
+The image is processed using Gemini's vision capabilities.
+
+### Step 3 — Food Identification
+
+The application identifies the type of food present in the image.
+
+### Step 4 — Quantity Estimation
+
+The AI provides an estimated quantity of the wasted food.
+
+### Step 5 — Waste Insights
+
+The analyzed information can be used to understand waste patterns and generate useful insights.
+
+### Step 6 — Reduction Recommendations
+
+The system provides suggestions that can help users reduce future food wastage.
+
+---
+
+## 🌱 Future Scope
+
+* 🔍 Improved food recognition accuracy
+* ⚖️ More accurate quantity estimation
+* 📱 Mobile application
+* 📊 Advanced analytics and visualization
+* 🏪 Restaurant-level food waste monitoring
+* 📈 Historical waste tracking
+* 🔔 Waste reduction alerts
+* 🌐 Multi-language support
+* 🤖 Integration with specialized food-waste detection models
+* ☁️ Cloud deployment and scalable data storage
+
+---
+
+## 🎯 Objective
+
+The main objective of this project is to use artificial intelligence to make food-waste monitoring easier and more actionable.
+
+By analyzing food waste through images and providing meaningful recommendations, the application aims to help individuals and food-service businesses better understand their waste patterns and take steps toward reducing unnecessary food waste.
+
+---
+
+## 💻 Development
+
+This project was developed using modern web technologies with an AI-powered image analysis workflow.
+
+The application combines:
+
+```text
+Next.js
+   +
+React / TypeScript
+   +
+Gemini AI
+   +
+Genkit
+   =
+AI-Powered Food Waste Analysis Platform
+```
+
+---
+
+## 👨‍💻 Author
+
+**Gaurav Yadav**
+
+* GitHub: https://github.com/gaurav-yadav-6126
+* LinkedIn: https://www.linkedin.com/in/gaurav-yadav-31510129a/
+
+---
+
+## ⭐ Support
+
+If you find this project useful, consider giving the repository a ⭐ on GitHub.
+
+---
+
+## 📄 License
+
+This project is intended for educational and development purposes.
